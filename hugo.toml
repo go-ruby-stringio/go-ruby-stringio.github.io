@@ -1,0 +1,36 @@
+baseURL = "https://go-ruby-stringio.github.io/"
+title = "go-ruby-stringio"
+disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[[params.phases]]
+  name = "Modes"
+  status = "ready"
+  blurb = "`r` / `w` / `a` and the `r+` / `w+` / `a+` read-write variants, with `w`/`w+` truncating the seed string and append mode writing at the end regardless of the cursor."
+
+[[params.phases]]
+  name = "Reading"
+  status = "ready"
+  blurb = "Byte-oriented `read(n)` / `read` (`nil` for a length read at EOF), `gets` with a separator, a byte limit, and **paragraph mode** (`gets(\"\")`), `readline` / `readlines` / `each_line`, character-oriented `getc` / `each_char` / `readchar`, and byte-oriented `getbyte` / `each_byte` / `readbyte`."
+
+[[params.phases]]
+  name = "Writing"
+  status = "ready"
+  blurb = "`write` / `<<`, `puts` / `print` / `printf`, `putc`, and seek-past-end writes that extend and NUL-pad the buffer exactly like MRI."
+
+[[params.phases]]
+  name = "Positioning"
+  status = "ready"
+  blurb = "`pos` / `pos=` / `tell`, `seek` (SEEK_SET / CUR / END), `rewind`, with a negative position raising `Errno::EINVAL`."
+
+[[params.phases]]
+  name = "Content & state"
+  status = "ready"
+  blurb = "`string` / `string=`, `truncate` (shrink or grow with NUL-pad), `size` / `length`, `eof?`, `close` / `closed?`, `flush`, `lineno` / `lineno=`, and `ungetc` / `ungetbyte` prepending at the start of the buffer."
+
+[[params.phases]]
+  name = "Exact MRI raises & coverage"
+  status = "ready"
+  blurb = "Read on a write-only stream, write on a read-only stream, or any op on a closed stream raise `IOError`; `readline`/`readchar`/`readbyte` at EOF raise `EOFError`; a negative `read` length raises `ArgumentError`. A corpus of StringIO programs is run by `ruby` and reproduced here byte-for-byte; 100% coverage, green across six 64-bit arches and three OSes."
