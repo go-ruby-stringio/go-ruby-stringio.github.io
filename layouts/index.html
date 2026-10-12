@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{{/* Dark Reader repaints pages that already draw their own dark theme, as this one does: ask it to stand aside. */}}
+<meta name="darkreader-lock">
 <title>{{ .Site.Title }} — Ruby's StringIO in-memory IO in pure Go — MRI-compatible, no cgo.</title>
 <meta name="description" content="go-ruby-stringio — A pure-Go reimplementation of Ruby's StringIO, an in-memory IO over a String buffer, MRI-compatible, no cgo.">
 <style>
